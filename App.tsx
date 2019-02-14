@@ -1,16 +1,42 @@
 import React, { Component } from 'react';
-import { Container, Header } from 'native-base';
-import { Col, Row, Grid } from 'react-native-easy-grid';
+import {Constants} from 'expo';
+import {
+  Container,
+  Header,
+  Button,
+  Text,
+  Body,
+  Form,
+  Item as FormItem,
+  Input,
+  Label,
+  Title,
+} from 'native-base';
 
 export default class App extends Component {
   render() {
     return (
-      <Container>
-        <Header />
-          <Grid>
-            <Col style={{ backgroundColor: '#635DB7', height: 200 }}></Col>
-            <Col style={{ backgroundColor: '#00CE9F', height: 200 }}></Col>
-          </Grid>
+      <Container style={{ paddingTop: Constants.statusBarHeight }}>
+        <Header>
+          <Body>
+            <Title>Stuck Web</Title>
+          </Body>
+        </Header>
+        <Form>
+          <FormItem floatingLabel>
+            <Label>Email</Label>
+            <Input />
+          </FormItem>
+          <FormItem floatingLabel last>
+            <Label>Password</Label>
+            <Input secureTextEntry={true} />
+          </FormItem>
+
+          <Button full primary style={{ paddingBottom: 4, marginTop: 50, marginBottom:10 }}>
+            <Text> Login </Text>
+          </Button>
+          <Button full light primary><Text> Sign Up </Text></Button>
+        </Form>
       </Container>
     );
   }
